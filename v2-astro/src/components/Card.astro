@@ -1,0 +1,18 @@
+---
+// Reusable card. Renders a link when `href` is given, a plain card otherwise.
+// Extra classes (card--gold, card--center, card--link) pass through via `class`.
+import "../styles/card.css";
+
+interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+const Tag = href ? "a" : "article";
+const linkAttrs = href ? { href, target: "_blank", rel: "noopener" } : {};
+---
+
+<Tag class:list={["card", className]} {...linkAttrs}>
+  <slot />
+</Tag>

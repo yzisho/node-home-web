@@ -1,0 +1,187 @@
+---
+// NODE LEGION home page. Edit the data below to change copy without touching markup.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+
+const OPENSEA = "https://opensea.io/collection/node-legion";
+
+const FACTS = [
+  { value: "1:1", label: "Every NFT is an equal share" },
+  { value: "4%", label: "Of each resale grows the pool" },
+  { value: "4×/yr", label: "Collateral reviews by the Legion" },
+];
+
+const NODE_CARDS = [
+  { title: "Store", text: "Holds a full copy of the ledger, keeping the chain's history safe." },
+  { title: "Verify", text: "Checks every transaction against the rules — no trust required." },
+  { title: "Broadcast", text: "Relays verified data peer-to-peer across the globe." },
+];
+
+const STEPS = [
+  { title: "Mint on OpenSea", text: "Every Node NFT is identical — same value, same share." },
+  { title: "Collateral is pooled", text: "Mint proceeds become the collateral that puts real nodes to work." },
+  { title: "Quarterly review", text: "Each quarter the Legion reviews the pool and decides whether to grow it." },
+  { title: "Burn or buyback", text: "If value has grown enough, a burn or buyback may activate, minus 10% collateral." },
+];
+
+const FEES = [
+  { pct: "10%", title: "Mint fee", text: "Charged per NFT at mint. Goes to OpenSea.", gold: false },
+  { pct: "4%", title: "Resale fee", text: "Added straight to the node collateral — every trade grows the pool.", gold: true },
+  { pct: "1%", title: "Resale fee", text: "Assists with network fees, keeping the nodes running.", gold: false },
+];
+
+const DASH_TILES = [
+  { label: "Node status", value: "Pending" },
+  { label: "Node collateral", value: "—" },
+  { label: "NFTs minted", value: "—" },
+  { label: "Next review", value: "—" },
+];
+
+const SOCIALS = [
+  { href: OPENSEA, title: "OpenSea", text: "Browse & mint" },
+  { href: "https://x.com/nodelegion", title: "X / Twitter", text: "News & alpha" },
+  { href: "https://t.me/nodelegion", title: "Telegram", text: "Talk with the Legion" },
+  { href: "https://discord.gg/nodelegion", title: "Discord", text: "The Legion HQ" },
+];
+---
+
+<BaseLayout>
+
+  <section class="hero">
+    <div class="hero__content container">
+      <p class="hero__badge">COMMUNITY-RUN NODE COLLECTIVE</p>
+      <h1 class="hero__title">Run the network.<br /><span class="text-grad">Own the node.</span></h1>
+      <p class="hero__sub">
+        Every NODE LEGION NFT is an equal share of real blockchain node collateral.
+        No rarity games. No hidden take. Just nodes.
+      </p>
+      <div class="hero__actions">
+        <a href={OPENSEA} target="_blank" rel="noopener" class="btn">Mint on OpenSea</a>
+        <a href="#nodes" class="btn btn--ghost">How it works</a>
+      </div>
+      <div class="hero__facts">
+        {FACTS.map((fact) => (
+          <div class="fact"><strong>{fact.value}</strong><span>{fact.label}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="nodes">
+    <div class="container">
+      <p class="section__kicker">// the foundation</p>
+      <h2 class="section__title">What are nodes?</h2>
+      <p class="section__lead">
+        A node is a computer that runs the blockchain — and it needs collateral to operate.
+        Your NFT is an equal share of that collateral. Its value can rise or fall over time.
+      </p>
+      <div class="grid grid--3">
+        {NODE_CARDS.map((card) => (
+          <Card>
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="how-it-works">
+    <div class="container container--narrow">
+      <p class="section__kicker">// the lifecycle</p>
+      <h2 class="section__title">How it works</h2>
+      <ol class="steps">
+        {STEPS.map((step) => (
+          <li>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="fees">
+    <div class="container">
+      <p class="section__kicker">// full transparency</p>
+      <h2 class="section__title">Where every fee goes</h2>
+      <p class="section__lead">Three fees. Three destinations. One of them pays the Legion back.</p>
+      <div class="grid grid--3">
+        {FEES.map((fee) => (
+          <Card class={fee.gold ? "card--gold" : ""}>
+            <p class:list={["card__pct", { "card__pct--gold": fee.gold }]}>{fee.pct}</p>
+            <h3>{fee.title}</h3>
+            <p>{fee.text}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="dashboard">
+    <div class="container">
+      <p class="section__kicker">// track the legion</p>
+      <h2 class="section__title">Node dashboard</h2>
+      <p class="section__lead">Live node status lands here and in Discord once the mint completes.</p>
+      <div class="grid grid--4">
+        {DASH_TILES.map((tile) => (
+          <Card class="card--center">
+            <span class="card__label">{tile.label}</span><strong>{tile.value}</strong>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <p class="section__kicker">// questions</p>
+      <h2 class="section__title">FAQ</h2>
+
+      <details class="faq" open>
+        <summary>What are Nodes?</summary>
+        <p>A blockchain node is a computer or device that runs blockchain software and helps store, verify, and broadcast data across the network. Nodes require collateral to operate, with each NFT representing an equal share of the underlying node collateral, whose value can increase or decrease over time.</p>
+      </details>
+
+      <details class="faq">
+        <summary>What are the OpenSea fees?</summary>
+        <ul>
+          <li><strong>10%</strong> mint fee per NFT goes to OpenSea.</li>
+          <li><strong>4%</strong> enforced creator resale fee is added to the node collateral.</li>
+          <li><strong>1%</strong> resale fee to assist with network fees.</li>
+        </ul>
+      </details>
+
+      <details class="faq">
+        <summary>How do node rewards work?</summary>
+        <p>Each quarter, the node collateral will be reviewed to determine whether it should be increased for the following quarter. If the Legion determines that the NFTs have increased sufficiently in value, a burn or buyback mechanism may be activated, minus 10% collateral.</p>
+      </details>
+
+      <details class="faq">
+        <summary>Where can I track my node?</summary>
+        <p>Once the mint has completed and the project is live, node status will be added to the website and Discord, allowing the Legion to track the status of the node NFTs.</p>
+      </details>
+
+      <details class="faq">
+        <summary>What about artwork &amp; rarity?</summary>
+        <p>Each Node NFT is equal in value and representation. Any changes to the artwork, including design and associated costs, can be discussed at a later date if the Legion decides to pursue them.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="community">
+    <div class="container">
+      <p class="section__kicker">// join us</p>
+      <h2 class="section__title">Join the Legion</h2>
+      <p class="section__lead">The network is only as strong as its community.</p>
+      <div class="grid grid--4">
+        {SOCIALS.map((social) => (
+          <Card class="card--link" href={social.href}>
+            <h3>{social.title}</h3><p>{social.text}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

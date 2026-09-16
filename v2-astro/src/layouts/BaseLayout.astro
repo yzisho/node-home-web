@@ -1,0 +1,85 @@
+---
+// Site shell: <head>, sticky nav, footer. Page content renders in the <slot />.
+import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "NODE LEGION — Run the Network. Own the Node.",
+  description = "NODE LEGION is a community-run node collective. Each NFT is an equal share of real blockchain node collateral — reviewed quarterly by the Legion.",
+} = Astro.props;
+
+const OPENSEA = "https://opensea.io/collection/node-legion";
+
+const NAV_LINKS = [
+  { href: "#nodes", label: "Nodes" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#fees", label: "Fees" },
+  { href: "#dashboard", label: "Dashboard" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#community", label: "Community" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content="Each NFT is an equal share of real blockchain node collateral. Quarterly reviews. Community governed." />
+  <meta property="og:image" content="https://nodelegion.com/images/hero-legion.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nodelegion.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@nodelegion" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,4 26,10 26,22 16,28 6,22 6,10' fill='none' stroke='%2354b0ff' stroke-width='2.5'/%3E%3Cpolygon points='16,11 21,14 21,20 16,23 11,20 11,14' fill='%2354b0ff'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav__inner container">
+      <a href="#top" class="nav__brand">NODE<em>LEGION</em></a>
+      <nav class="nav__links" id="navLinks">
+        {NAV_LINKS.map((link) => <a href={link.href}>{link.label}</a>)}
+        <a href={OPENSEA} target="_blank" rel="noopener" class="btn btn--small">Mint</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><span class="nav__brand">NODE<em>LEGION</em></span> — a community-run node collective. Strength in numbers.</p>
+      <p>© {year} NODE LEGION. The value of node collateral can increase or decrease over time. Nothing on this site is financial advice.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("navToggle")!.addEventListener("click", () => {
+      document.getElementById("navLinks")!.classList.toggle("is-open");
+    });
+    document.getElementById("navLinks")!.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).tagName === "A") document.getElementById("navLinks")!.classList.remove("is-open");
+    });
+  </script>
+
+</body>
+</html>

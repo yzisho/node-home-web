@@ -1,0 +1,9 @@
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 0ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":" astro  v7.3.2 ready in 723 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] /home 15ms","label":null,"level":"info"}
+{"message":"[200] /home 2ms","label":null,"level":"info"}
+{"message":"[404] / 2ms","label":null,"level":"info"}
+{"message":"[200] /home 2ms","label":null,"level":"info"}
