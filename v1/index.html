@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NODE LEGION — Own a Share of the Network</title>
+  <meta name="description" content="NODE LEGION is a community-run node collective. Each NFT represents an equal share of real blockchain node collateral — reviewed quarterly by the Legion.">
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="NODE LEGION — Own a Share of the Network">
+  <meta property="og:description" content="Each NFT represents an equal share of real blockchain node collateral. Quarterly reviews. Community governed.">
+  <meta property="og:image" content="https://nodelegion.com/assets/hero-network.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nodelegion.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nodelegion">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%233ee6b0'/%3E%3Ccircle cx='6' cy='7' r='3' fill='%233ee6b0' opacity='.7'/%3E%3Ccircle cx='26' cy='8' r='2.5' fill='%233ee6b0' opacity='.5'/%3E%3Ccircle cx='25' cy='26' r='3' fill='%233ee6b0' opacity='.7'/%3E%3Cpath d='M16 16L6 7M16 16l10-8M16 16l9 10' stroke='%233ee6b0' stroke-opacity='.45' stroke-width='1.2'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/hero-network.webp" type="image/webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner container">
+      <a href="#top" class="nav__brand" aria-label="NODE LEGION home">
+        <svg class="nav__mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+          <circle cx="16" cy="16" r="5" fill="var(--accent)"/>
+          <circle cx="6" cy="7" r="3" fill="var(--accent)" opacity=".7"/>
+          <circle cx="26" cy="8" r="2.5" fill="var(--accent)" opacity=".5"/>
+          <circle cx="25" cy="26" r="3" fill="var(--accent)" opacity=".7"/>
+          <path d="M16 16L6 7M16 16l10-8M16 16l9 10" stroke="var(--accent)" stroke-opacity=".45" stroke-width="1.2"/>
+        </svg>
+        <span>NODE<em>LEGION</em></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Main">
+        <a href="#nodes">Nodes</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#fees">Fees</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#faq">FAQ</a>
+        <a href="#community">Community</a>
+        <a href="https://opensea.io/collection/node-legion" target="_blank" rel="noopener" class="btn btn--small btn--solid nav__cta">View Collection</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <canvas id="networkCanvas" class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="hero__badge reveal"><span class="pulse-dot"></span> Community-run node collective</p>
+        <h1 class="hero__title reveal">Own a share<br>of the <span class="text-glow">network</span>.</h1>
+        <p class="hero__sub reveal">
+          NODE LEGION runs real blockchain nodes. Each NFT represents an equal share of the
+          underlying node collateral — stored, verified, and broadcast across the network,
+          reviewed quarterly by the Legion.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="https://opensea.io/collection/node-legion" target="_blank" rel="noopener" class="btn btn--solid">View Collection on OpenSea</a>
+          <a href="#how-it-works" class="btn btn--ghost">How it works ↓</a>
+        </div>
+
+        <dl class="hero__facts reveal">
+          <div class="fact">
+            <dt>Share per NFT</dt>
+            <dd><span class="count" data-count="1" data-suffix=":1">0</span></dd>
+            <p>Every Node NFT is equal — no rarity tiers</p>
+          </div>
+          <div class="fact">
+            <dt>Resale → collateral</dt>
+            <dd><span class="count" data-count="4" data-suffix="%">0</span></dd>
+            <p>Enforced creator fee grows the node pool</p>
+          </div>
+          <div class="fact">
+            <dt>Collateral reviews</dt>
+            <dd><span class="count" data-count="4" data-suffix="×/yr">0</span></dd>
+            <p>Reviewed every quarter by the Legion</p>
+          </div>
+        </dl>
+      </div>
+
+      <a href="#nodes" class="hero__scroll" aria-label="Scroll to content"><span></span></a>
+    </section>
+
+    <!-- ===== What are Nodes ===== -->
+    <section class="section" id="nodes">
+      <div class="container">
+        <p class="section__kicker reveal">The foundation</p>
+        <h2 class="section__title reveal">What are nodes?</h2>
+        <p class="section__lead reveal">
+          A blockchain node is a computer that runs blockchain software and keeps the network
+          alive. Nodes require collateral to operate — and that collateral is what your NFT
+          represents a share of. Its value can increase or decrease over time.
+        </p>
+
+        <div class="grid grid--3">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/><circle cx="7" cy="7" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="17" cy="17" r="1.4" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <h3>Store</h3>
+            <p>Nodes hold a full copy of the ledger, keeping the blockchain's history safe and decentralized.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Verify</h3>
+            <p>Every transaction is independently checked against the network's rules — no trust required.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="2.2"/><path d="M16.2 7.8a6 6 0 010 8.4M7.8 16.2a6 6 0 010-8.4M19 5a10 10 0 010 14M5 19A10 10 0 015 5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Broadcast</h3>
+            <p>Verified data is relayed peer-to-peer across the globe, keeping every participant in sync.</p>
+          </article>
+        </div>
+
+        <div class="callout reveal">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01" stroke-linecap="round"/></svg>
+          <p><strong>Each NFT = an equal share of the node collateral.</strong> The collateral backs real operating nodes, and its value can go up or down with the market.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="section section--alt" id="how-it-works">
+      <div class="container">
+        <p class="section__kicker reveal">The lifecycle</p>
+        <h2 class="section__title reveal">How it works</h2>
+
+        <ol class="timeline">
+          <li class="timeline__step reveal">
+            <div class="timeline__marker">01</div>
+            <div class="timeline__body">
+              <h3>Mint on OpenSea</h3>
+              <p>Mint your Node NFT from the official collection. Every NFT is identical in value and representation — no rarity games, no gas wars over traits.</p>
+            </div>
+          </li>
+          <li class="timeline__step reveal">
+            <div class="timeline__marker">02</div>
+            <div class="timeline__body">
+              <h3>Collateral is pooled</h3>
+              <p>Mint proceeds form the node collateral that puts real nodes to work. Your NFT represents an equal share of that underlying collateral.</p>
+            </div>
+          </li>
+          <li class="timeline__step reveal">
+            <div class="timeline__marker">03</div>
+            <div class="timeline__body">
+              <h3>Quarterly review</h3>
+              <p>Each quarter, the node collateral is reviewed to determine whether it should be increased for the following quarter. Every 4% resale fee collected along the way is added to the pool.</p>
+            </div>
+          </li>
+          <li class="timeline__step reveal">
+            <div class="timeline__marker">04</div>
+            <div class="timeline__body">
+              <h3>Burn or buyback</h3>
+              <p>If the Legion determines the NFTs have increased sufficiently in value, a burn or buyback mechanism may be activated, minus 10% collateral.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Fees ===== -->
+    <section class="section" id="fees">
+      <div class="container">
+        <p class="section__kicker reveal">Full transparency</p>
+        <h2 class="section__title reveal">Where every fee goes</h2>
+        <p class="section__lead reveal">No hidden take. Three fees, three destinations — one of them pays you back.</p>
+
+        <div class="fees">
+          <article class="fee reveal">
+            <header>
+              <span class="fee__pct">10%</span>
+              <h3>Mint fee</h3>
+            </header>
+            <div class="fee__bar"><span style="--w: 100%"></span></div>
+            <p>Charged per NFT at mint. Goes to OpenSea as the platform's minting fee.</p>
+            <footer class="fee__dest">→ OpenSea</footer>
+          </article>
+
+          <article class="fee fee--highlight reveal">
+            <header>
+              <span class="fee__pct">4%</span>
+              <h3>Creator resale fee</h3>
+            </header>
+            <div class="fee__bar"><span style="--w: 40%"></span></div>
+            <p>Enforced on every resale — and added straight to the node collateral. Trading grows the pool backing your NFT.</p>
+            <footer class="fee__dest">→ Node collateral</footer>
+          </article>
+
+          <article class="fee reveal">
+            <header>
+              <span class="fee__pct">1%</span>
+              <h3>Network fee</h3>
+            </header>
+            <div class="fee__bar"><span style="--w: 10%"></span></div>
+            <p>A small resale fee that assists with network fees, keeping the nodes running smoothly.</p>
+            <footer class="fee__dest">→ Network operations</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Dashboard preview ===== -->
+    <section class="section section--alt" id="dashboard">
+      <div class="container">
+        <p class="section__kicker reveal">Track the Legion</p>
+        <h2 class="section__title reveal">Node dashboard</h2>
+        <p class="section__lead reveal">
+          Once the mint completes and the project is live, node status will appear here and in
+          Discord — so the Legion can track the state of the node NFTs at any time.
+        </p>
+
+        <!-- Placeholder tiles: wire real values here once the node API is live. -->
+        <div class="dash reveal">
+          <div class="dash__head">
+            <span class="pulse-dot pulse-dot--amber"></span>
+            <span>Dashboard goes live after mint</span>
+          </div>
+          <div class="dash__grid">
+            <div class="dash__tile">
+              <span class="dash__label">Node status</span>
+              <span class="dash__value dash__value--pending">Pending</span>
+            </div>
+            <div class="dash__tile">
+              <span class="dash__label">Node collateral</span>
+              <span class="dash__value dash__value--pending">—</span>
+            </div>
+            <div class="dash__tile">
+              <span class="dash__label">NFTs minted</span>
+              <span class="dash__value dash__value--pending">—</span>
+            </div>
+            <div class="dash__tile">
+              <span class="dash__label">Next quarterly review</span>
+              <span class="dash__value dash__value--pending">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <p class="section__kicker reveal">Questions</p>
+        <h2 class="section__title reveal">FAQ</h2>
+
+        <div class="faq reveal">
+          <details class="faq__item" open>
+            <summary>What are Nodes?</summary>
+            <div class="faq__answer">
+              <p>A blockchain node is a computer or device that runs blockchain software and helps store, verify, and broadcast data across the network. Nodes require collateral to operate, with each NFT representing an equal share of the underlying node collateral, whose value can increase or decrease over time.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>What are the OpenSea fees?</summary>
+            <div class="faq__answer">
+              <ul>
+                <li><strong>10%</strong> mint fee per NFT goes to OpenSea.</li>
+                <li><strong>4%</strong> enforced creator resale fee is added to the node collateral.</li>
+                <li><strong>1%</strong> resale fee to assist with network fees.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>How do node rewards work?</summary>
+            <div class="faq__answer">
+              <p>Each quarter, the node collateral will be reviewed to determine whether it should be increased for the following quarter. If the Legion determines that the NFTs have increased sufficiently in value, a burn or buyback mechanism may be activated, minus 10% collateral.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Where can I track my node?</summary>
+            <div class="faq__answer">
+              <p>Once the mint has completed and the project is live, node status will be added to the website and Discord, allowing the Legion to track the status of the node NFTs.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>What about artwork &amp; rarity?</summary>
+            <div class="faq__answer">
+              <p>Each Node NFT is equal in value and representation. Any changes to the artwork, including design and associated costs, can be discussed at a later date if the Legion decides to pursue them.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Community ===== -->
+    <section class="section section--community" id="community">
+      <div class="container">
+        <p class="section__kicker reveal">Join us</p>
+        <h2 class="section__title reveal">Join the Legion</h2>
+        <p class="section__lead reveal">The network is only as strong as its community. Find us everywhere.</p>
+
+        <div class="grid grid--4">
+          <a class="social reveal" href="https://opensea.io/collection/node-legion" target="_blank" rel="noopener">
+            <div class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M8 13.5l3-6.5v5h5l-3 6.5v-5H8z" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>OpenSea</h3>
+            <p>Browse &amp; mint the collection</p>
+            <span class="social__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="social reveal" href="https://x.com/nodelegion" target="_blank" rel="noopener">
+            <div class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.6 2H8l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg>
+            </div>
+            <h3>X / Twitter</h3>
+            <p>News &amp; announcements</p>
+            <span class="social__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="social reveal" href="https://t.me/nodelegion" target="_blank" rel="noopener">
+            <div class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4L2.9 11.7c-1 .4-1 1.4-.2 1.7l4.8 1.5 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.9 3.6c.6.4 1.5.1 1.7-.7l3.3-15.4c.2-1-.6-1.8-1.5-1.5zM8.5 14.3l9.4-6.9c.3-.2.6.2.3.4l-7.7 7.2-.3 3.2-1.7-3.9z"/></svg>
+            </div>
+            <h3>Telegram</h3>
+            <p>Talk with the Legion</p>
+            <span class="social__arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="social reveal" href="https://nodelegion.com" target="_blank" rel="noopener">
+            <div class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>
+            </div>
+            <h3>Website</h3>
+            <p>nodelegion.com</p>
+            <span class="social__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span>NODE<em>LEGION</em></span>
+        <p>A community-run node collective. Strength in numbers.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#nodes">Nodes</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#fees">Fees</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://opensea.io/collection/node-legion" target="_blank" rel="noopener">Collection</a>
+      </nav>
+    </div>
+    <div class="container footer__legal">
+      <p>© <span id="year">2026</span> NODE LEGION. All rights reserved.</p>
+      <p class="footer__disclaimer">The value of node collateral can increase or decrease over time. Nothing on this site is financial advice.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
