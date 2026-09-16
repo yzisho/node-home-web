@@ -141,7 +141,7 @@
   const ctx = canvas.getContext("2d");
   let width = 0, height = 0, nodes = [], canvasRAF = null, canvasVisible = true;
   const LINK_DIST = 150;
-  const COLORS = ["79, 241, 255", "255, 62, 200", "167, 139, 250"];
+  const COLORS = ["84, 176, 255", "255, 180, 84", "109, 141, 255"];
 
   const nodeCount = () => Math.min(70, Math.floor((width * height) / 22000));
   const makeNode = () => ({
